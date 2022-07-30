@@ -31,6 +31,10 @@ module.exports = (sequelize) => {
     },
     weight: {
       type: DataTypes.INTEGER
+    },
+    image: {
+      type: DataTypes.TEXT,
+      defaultValue: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg',
     }
   }, { timestamps: false });
 };

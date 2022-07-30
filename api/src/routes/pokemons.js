@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
     if (!name) {
       return res.status(200).send(pokemons);
     }else{
-      const regex = new RegExp(`[a-zA-Z]*${name}[a-zA-Z]*`, 'i');
+      const regex = new RegExp(`[A-Z]*${name}[A-Z]*`, 'i');
       let pokeName = await pokemons.filter(e => {
         if (regex.test(e.name)) {
           return e;

@@ -35,7 +35,7 @@ export function getTypes() {
 export function getPokemonDetails(id) {
   return async function(dispatch) {
     try {
-      const details = (await axios.get(`http://localhost:3001/pokemons${id}`)).data;
+      const details = (await axios.get(`http://localhost:3001/pokemons/${id}`)).data;
       return dispatch({
         type: GET_POKEMON_DETAILS,
         payload: details,

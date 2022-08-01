@@ -9,7 +9,6 @@ function TypesCheck({ name, handleCheck, checked, cleanCheck }) {
     handleCheck(e);
   } 
   useEffect(() => {
-    console.log("aca estoy");
     setCheck(false)
   }, [cleanCheck]);
 

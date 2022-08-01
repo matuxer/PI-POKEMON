@@ -6,8 +6,11 @@ import axios from 'axios';
 
 const validate = (input) => {
   let error = {};
+  let noNumbers = /[0-9]/;
   if (input.name.length === 0) {
     error.name = "Se requiere un nombre"
+  }else if(noNumbers.test(input.name)){
+    error.name = "No se permiten numeros en el nombre"
   };
   if (input.types.length === 0) {
     error.types = "Se requiere minimo 1 tipo"
@@ -65,17 +68,27 @@ function Form() {
     e.preventDefault();
     if (!input.image) {
       await axios.post('http://localhost:3001/pokemons', {
-        name: input.name,
-        health: input.health,
-        attack: input.attack,
-        defense: input.defense,
-        speed: input.speed,
-        height: input.height,
-        weight: input.weight,
+        name: input.name.trim(),
+        health: parseInt(input.health),
+        attack: parseInt(input.attack),
+        defense: parseInt(input.defense),
+        speed: parseInt(input.speed),
+        height: parseInt(input.height),
+        weight: parseInt(input.weight),
         types: input.types,
       })
     }else{
-      await axios.post('http://localhost:3001/pokemons`', input)
+      await axios.post('http://localhost:3001/pokemons`', {
+        name: input.name.trim(),
+        health: parseInt(input.health),
+        attack: parseInt(input.attack),
+        defense: parseInt(input.defense),
+        speed: parseInt(input.speed),
+        height: parseInt(input.height),
+        weight: parseInt(input.weight),
+        image: input.image,
+        types: input.types,
+      })
     }
     setInput(initialState);
     setChecked(false);

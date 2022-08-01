@@ -3,6 +3,7 @@ import { getPokemons } from '../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import Cards from './Cards';
 import NavBar from './NavBar';
+import styles from './HomePage.module.css';
 
 function HomePage() {
   const pokemons = useSelector(state => state.pokemons);
@@ -19,12 +20,14 @@ function HomePage() {
   useEffect(() => {
     dispatcher();
   }, [dispatch]);
-
+  console.log(pokemons)
   return (
-    <div>
+    <div className={styles.homePage}>
       <NavBar />
       <h1>HOME</h1>
+      <div className={styles.homeCards}>
       <Cards pokemons={pokemons} loading={loading} />
+      </div>
     </div>
   )
 }

@@ -1,12 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './NavBar.module.css';
 
 function NavBar() {
   return (
-    <div>
-    <Link to='/home'>HOME</Link>
-    <br />
-    <Link to='/createpokemon'>FORM</Link>
+    <div className={styles.navBar}>
+      <div className={styles.navBarLinks}>
+        <Link className={styles.links} to='/home'>HOME</Link>
+      </div>
+      <div className={styles.navBarLinks}>
+        <Link className={styles.links} to='/createpokemon'>FORM</Link>
+      </div>
     </div>
   )
 }

@@ -28,22 +28,7 @@ function Cards({ pokemons, loading }) {
     </div>
   )
 }
-/*
-<div class="card">
-<div class="card-img"></div>
-  <div class="card-info">
-    <div class="card-text">
-      <p class="text-title">This is a title</p>
-      <p class="text-subtitle">This is a subtitle</p>
-    </div>
-    <div class="card-icon">
-      <svg viewBox="0 0 28 25">
-        <path d="M13.145 2.13l1.94-1.867 12.178 12-12.178 12-1.94-1.867 8.931-8.8H.737V10.93h21.339z"></path>
-      </svg>
-    </div>
-  </div>
-</div>
-*/
+
 
 
 export default Cards

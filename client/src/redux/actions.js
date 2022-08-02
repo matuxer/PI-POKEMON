@@ -4,10 +4,15 @@ const GET_POKEMONS = 'GET_POKEMONS';
 const GET_TYPES = 'GET_TYPES';
 const GET_POKEMON_DETAILS = 'GET_POKEMON_DETAILS';
 
-export function getPokemons(){
+export function getPokemons(name){
   return async function(dispatch){
+    let pokemons;
     try {
-      const pokemons = (await axios.get('http://localhost:3001/pokemons')).data;
+      if (name) {
+        pokemons = (await axios.get(`http://localhost:3001/pokemons?name=${name}`)).data;
+      }else {
+        pokemons = (await axios.get('http://localhost:3001/pokemons')).data;
+      }
       return dispatch({
         type: GET_POKEMONS,
         payload: pokemons,

@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<LandingPage />}/>
-        <Route exact path='/home' element={<HomePage />}/>
+        <Route path='/home/' element={<HomePage />}/>
         <Route exact path='/createpokemon' element={<Form />}/>
         <Route exact path='/pokemon/:id' element={<PokemonDetails />}/>
       </Routes>

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import NavBar from './NavBar'
 import TypesCheck from './TypesCheck';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const validate = (input) => {
   let error = {};
@@ -21,6 +22,7 @@ const validate = (input) => {
 }
 
 function Form() {
+  const navigate = useNavigate();
   const types = useSelector(state => state.types);
   const initialState = {
     name: '',
@@ -93,6 +95,7 @@ function Form() {
     setInput(initialState);
     setChecked(false);
     setClean(!clean);
+    navigate(-1);
   }
 
   console.log(input)

@@ -51,12 +51,12 @@
   opacity: 0;
   transform: translateX(-20%);
   width: 4.7em;
-  height: 2em;
+  height: 2.2em;
   transition: all .3s ease-in-out;
 }
 
 .cardSvg {
-  --size: 20px;
+  --size: 24px;
   width: var(--size);
   height: var(--size);
 }
@@ -88,7 +88,7 @@
 }
 
 .textName:hover {
-  padding-left: 50px;
+  padding-left: 45px;
 }
 
 .card:hover {

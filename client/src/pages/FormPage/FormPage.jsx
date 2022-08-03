@@ -1,25 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
-import NavBar from './NavBar'
-import TypesCheck from './TypesCheck';
+import NavBar from '../../components/NavBar/NavBar'
+import TypesCheckBox from '../../components/TypesCheckBox/TypesCheckBox';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { validate } from '../../controllers/clientControllers';
 
-const validate = (input) => {
-  let error = {};
-  let noNumbers = /[0-9]/;
-  if (input.name.length === 0) {
-    error.name = "Se requiere un nombre"
-  }else if(noNumbers.test(input.name)){
-    error.name = "No se permiten numeros en el nombre"
-  };
-  if (input.types.length === 0) {
-    error.types = "Se requiere minimo 1 tipo"
-  }else if (input.types.length > 2) {
-    error.types = "Solo se pueden 2 tipos"
-  }
-  return error;
-}
 
 function Form() {
   const navigate = useNavigate();
@@ -191,7 +177,7 @@ function Form() {
         </div>
         <div>
           <ul>
-            {types.map(type => (<TypesCheck key={type.id} name={type.name} handleCheck={handleCheck} checked={checked} cleanCheck={clean} />))}
+            {types.map(type => (<TypesCheckBox key={type.id} name={type.name} handleCheck={handleCheck} checked={checked} cleanCheck={clean} />))}
           </ul>
         </div>
         <div>

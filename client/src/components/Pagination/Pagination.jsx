@@ -11,9 +11,9 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
   return (
     <nav className={styles.paginationNav}>
       { pageNumbers.map(number => (
-        <a onClick={ () => paginate(number) } href="#" key={number} className={styles.paginationLink} >
+        <button onClick={ () => paginate(number) } href="#" key={number} className={styles.paginationLink} >
           {number}
-        </a>
+        </button>
       )) }
     </nav>
   )

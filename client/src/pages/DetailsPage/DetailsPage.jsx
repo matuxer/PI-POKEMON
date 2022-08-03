@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getPokemonDetails } from '../redux/actions';
+import { getPokemonDetails } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import NavBar from './NavBar';
+import NavBar from '../../components/NavBar/NavBar';
 
-function PokemonDetails() {
+
+function DetailsPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const pokemon = useSelector(state => state.pokemon);
   const [loading, setLoading] = useState(false);
 
-  const dispatcher = async (id) => {
-    await dispatch(getPokemonDetails(id));
-    setLoading(true);
-  }
-
+  
   useEffect(() => {
+    const dispatcher = async (id) => {
+      await dispatch(getPokemonDetails(id));
+      setLoading(true);
+    }
     dispatcher(id);
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   if(!loading) return ( 
   <div>
@@ -48,4 +49,4 @@ function PokemonDetails() {
 }
 
 
-export default PokemonDetails
+export default DetailsPage

@@ -1,64 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { getPokemons } from '../redux/actions';
+import { getPokemons } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import Cards from './Cards';
-import NavBar from './NavBar';
+import Cards from '../../components/Cards/Cards';
+import NavBar from '../../components/NavBar/NavBar';
 import styles from './HomePage.module.css';
-import Pagination from './Pagination';
+import Pagination from '../../components/Pagination/Pagination';
+import { filterCards, orderCards } from '../../controllers/clientControllers';
 
-const filterCards = (arr, str) => {
-  if (str === 'created') {
-    return arr.filter(el => /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i.test(el.id));
-  }else if (str === 'pokedex') {
-    return arr.filter(el => !/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i.test(el.id));
-  }else {
-    return arr.filter(el => el.types[0] === str || el.types[1] === str);
-  }
-}
-
-const orderCards = (arr, str) => {
-  if (str === 'aToZ') {
-    return arr.sort(function (a, b) {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-    });
-  } else if (str === 'zToA') {
-    return arr.sort(function (a, b) {
-      if (a.name < b.name) {
-        return 1;
-      }
-      if (a.name > b.name) {
-        return -1;
-      }
-      return 0;
-    });
-  } else if (str === 'highAttack') {
-    return arr.sort(function (a, b) {
-      if (a.attack < b.attack) {
-        return 1;
-      }
-      if (a.attack > b.attack) {
-        return -1;
-      }
-      return 0;
-    });
-  } else if (str === 'lowAttack') {
-    return arr.sort(function (a, b) {
-      if (a.attack > b.attack) {
-        return 1;
-      }
-      if (a.attack < b.attack) {
-        return -1;
-      }
-      return 0;
-    });
-  }
-}
 
 function HomePage() {
   const types = useSelector(state => state.types);

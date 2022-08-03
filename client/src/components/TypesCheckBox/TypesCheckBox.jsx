@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function TypesCheck({ name, handleCheck, checked, cleanCheck }) {
+function TypesCheckBox({ name, handleCheck, checked, cleanCheck }) {
   const initialState = checked
   const [check, setCheck] = useState(initialState);
 
@@ -20,4 +20,4 @@ function TypesCheck({ name, handleCheck, checked, cleanCheck }) {
   )
 }
 
-export default TypesCheck
+export default TypesCheckBox

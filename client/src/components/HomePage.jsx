@@ -5,7 +5,6 @@ import Cards from './Cards';
 import NavBar from './NavBar';
 import styles from './HomePage.module.css';
 import Pagination from './Pagination';
-import { useNavigate } from 'react-router-dom';
 
 const filterCards = (arr, str) => {
   if (str === 'created') {
@@ -77,15 +76,14 @@ function HomePage() {
 
   if (filterType !== 'select') {
     pokemons = filterCards( pokemons, filterType );
-  };
+  }
   if (filterCreated !== 'all') {
     pokemons = filterCards( pokemons, filterCreated );
-  };
+  }
   if (order !== 'select') {
     pokemons = orderCards( pokemons, order );
-  }else if (order === 'select') {
-    pokemons = [...pokemonsArr];
   }
+  
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPokemons = pokemons.slice(indexOfFirstPost, indexOfLastPost)
@@ -135,7 +133,7 @@ function HomePage() {
     }
   }
 
-  let handleFilterReset = (e) => {
+  let handleReset = (e) => {
     e.preventDefault();
     setFilterType('select');
     setFilterCreated('all');
@@ -183,7 +181,7 @@ function HomePage() {
         </form>
       </div>
       <div className={styles.homeCards}>
-      <form onReset={handleFilterReset}>
+      <form onReset={handleReset}>
       <div>
         <label htmlFor="types" >TYPES</label>
         <select name="types" id="types" value={ filterType } onChange={handleFilter}>
@@ -198,6 +196,11 @@ function HomePage() {
           <option value="pokedex">Pokedex</option>
         </select>
       </div>
+      <div>
+        <button type="reset">RESET</button>
+      </div>
+      </form>
+      <form onReset={handleReset}>
       <div>
         <select name="order" id="order" value={ order } onChange={handleOrder} >
           <option defaultValue="select">Select order...</option>

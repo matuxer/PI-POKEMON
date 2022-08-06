@@ -1,6 +1,8 @@
+import OrdersAndFilters from './../../components/OrdersAndFilters/OrdersAndFilters';
 import React, { useEffect, useState } from 'react';
 import { getPokemons } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import SearchBar from './../../components/SearchBar/SearchBar';
 import Cards from '../../components/Cards/Cards';
 import NavBar from '../../components/NavBar/NavBar';
 import styles from './HomePage.module.css';
@@ -9,7 +11,6 @@ import { filterCards, orderCards } from '../../controllers/clientControllers';
 
 
 function HomePage() {
-  const types = useSelector(state => state.types);
   const pokemonsArr = useSelector(state => state.pokemons);
   const dispatch = useDispatch();
   let pokemons = [...pokemonsArr];
@@ -107,61 +108,17 @@ function HomePage() {
   }, [ filterType, filterCreated, order ]);
 
   useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }, [ currentPage ]);
 
   return (
     <div className={styles.homePage}>
       <NavBar />
-      <div className={styles.searchBar}>
-        <form className={styles.searchForm} onSubmit={handleSubmit} onReset={handleSearchReset}>
-          <div>
-            <input 
-            value={ search }
-            type="text" 
-            onChange={handleSearch}
-            />
-          </div>
-          <div>
-            <button type='submit'>SEARCH</button>
-          </div>
-          <div>
-            <button disabled={search === ""} className={styles.resetSearchButton} type="reset">X</button>
-          </div>
-        </form>
-      </div>
-      <div className={styles.ordersAndFilters}>
-      <form className={styles.ordersAndFiltersForm} onReset={handleReset}>
-      <div className={styles.typesFilter}>
-        <select name="types" id="types" value={ filterType } onChange={handleFilter}>
-          <option defaultValue="select">Select type...</option>
-          {types.map(el => ( <option key={el.id} value={el.name} >{el.name}</option> ))}
-        </select>
-      </div>
-      <div className={styles.createdFilter}>
-        <select name="created" id="created" value={ filterCreated } onChange={handleFilter}>
-          <option defaultValue="all">All</option>
-          <option value="created">Created</option>
-          <option value="pokedex">Pokedex</option>
-        </select>
-      </div>
-      <div className={styles.orders}>
-        <select name="order" id="order" value={ order } onChange={handleOrder} >
-          <option defaultValue="select">Select order...</option>
-          <option value="aToZ">A to Z</option>
-          <option value="zToA">Z to A</option>
-          <option value="highAttack">High Attack</option>
-          <option value="lowAttack">Low Attack</option>
-        </select>
-      </div>
-      <div className={styles.buttonContainer}>
-        <button type="reset" className={styles.resetButton} >RESET</button>
-      </div>
-      </form>
-      </div>
+      <SearchBar handleSubmit={handleSubmit} handleSearchReset={handleSearchReset} search={search} handleSearch={handleSearch} />
+      <OrdersAndFilters handleReset={handleReset} filterType={filterType} handleFilter={handleFilter} filterCreated={filterCreated} order={order} handleOrder={handleOrder}  />
       <div className={styles.homeCards}>
       <Cards pokemons={currentPokemons} loading={loading} />
-      <Pagination postsPerPage={postsPerPage} totalPosts={pokemons[0] === 'noPokemons' || loading === true ? 0 : pokemons.length} paginate={paginate} />
+      <Pagination postsPerPage={postsPerPage} totalPosts={pokemons.length} paginate={paginate} />
       </div>
     </div>
   )

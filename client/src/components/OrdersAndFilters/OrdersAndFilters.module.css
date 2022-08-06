@@ -1,0 +1,12 @@
+.ordersAndFilters{
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.ordersAndFiltersForm {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}

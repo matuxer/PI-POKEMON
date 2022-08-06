@@ -8,9 +8,9 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
     pageNumbers.push(i);
   }
   
-  if (totalPosts === 0) {
+  if (totalPosts <= postsPerPage) {
     return (
-      <div></div>
+      <></>
     )
   }
 

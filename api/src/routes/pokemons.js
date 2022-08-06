@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const { Pokemon, Type } = require('../db');
 const router = Router();
-const { getAllPokemons, getById } = require('./controllers/controllers.js');
+const { getAllPokemons, getById } = require('./controllers/apiControllers.js');
 
 
 router.get('/', async (req, res, next) => {

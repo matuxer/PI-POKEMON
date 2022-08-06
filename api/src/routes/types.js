@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getApiTypes } = require('./controllers/controllers.js');
+const { getApiTypes } = require('./controllers/apiControllers.js');
 const router = Router();
 
 router.get('/', async (req, res, next) => {

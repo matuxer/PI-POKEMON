@@ -22,7 +22,7 @@ function Form() {
     types: [],
   }
   const [input, setInput] = useState(initialState);
-  const [error, setError] = React.useState({ name: "" });
+  const [error, setError] = useState({ name: "" });
   const [checked, setChecked] = useState(false);
   const [clean, setClean] = useState(false);
 
@@ -84,8 +84,6 @@ function Form() {
     navigate(-1);
   }
 
-  console.log(input)
-  console.log(error);
   return (
     <div>
       <NavBar />

@@ -45,7 +45,7 @@ function HomePage() {
   let handleSubmit = (e) => {
     e.preventDefault();
     dispatcher(search);
-    setCurrentPage(1)
+    setCurrentPage(1);
   }
   
   let handleSearchReset = (e) => {
@@ -106,13 +106,15 @@ function HomePage() {
     setCurrentPage(1)
   }, [ filterType, filterCreated, order ]);
 
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, [ currentPage ]);
 
   return (
     <div className={styles.homePage}>
       <NavBar />
-      <h1>HOME</h1>
-      <div>
-        <form onSubmit={handleSubmit} onReset={handleSearchReset}>
+      <div className={styles.searchBar}>
+        <form className={styles.searchForm} onSubmit={handleSubmit} onReset={handleSearchReset}>
           <div>
             <input 
             value={ search }
@@ -124,32 +126,26 @@ function HomePage() {
             <button type='submit'>SEARCH</button>
           </div>
           <div>
-            <button disabled={search === ""} type="reset">X</button>
+            <button disabled={search === ""} className={styles.resetSearchButton} type="reset">X</button>
           </div>
         </form>
       </div>
-      <div className={styles.homeCards}>
-      <form onReset={handleReset}>
-      <div>
-        <label htmlFor="types" >TYPES</label>
+      <div className={styles.ordersAndFilters}>
+      <form className={styles.ordersAndFiltersForm} onReset={handleReset}>
+      <div className={styles.typesFilter}>
         <select name="types" id="types" value={ filterType } onChange={handleFilter}>
           <option defaultValue="select">Select type...</option>
           {types.map(el => ( <option key={el.id} value={el.name} >{el.name}</option> ))}
         </select>
       </div>
-      <div>
+      <div className={styles.createdFilter}>
         <select name="created" id="created" value={ filterCreated } onChange={handleFilter}>
           <option defaultValue="all">All</option>
           <option value="created">Created</option>
           <option value="pokedex">Pokedex</option>
         </select>
       </div>
-      <div>
-        <button type="reset">RESET</button>
-      </div>
-      </form>
-      <form onReset={handleReset}>
-      <div>
+      <div className={styles.orders}>
         <select name="order" id="order" value={ order } onChange={handleOrder} >
           <option defaultValue="select">Select order...</option>
           <option value="aToZ">A to Z</option>
@@ -158,12 +154,14 @@ function HomePage() {
           <option value="lowAttack">Low Attack</option>
         </select>
       </div>
-      <div>
-        <button type="reset">RESET</button>
+      <div className={styles.buttonContainer}>
+        <button type="reset" className={styles.resetButton} >RESET</button>
       </div>
       </form>
+      </div>
+      <div className={styles.homeCards}>
       <Cards pokemons={currentPokemons} loading={loading} />
-      <Pagination postsPerPage={postsPerPage} totalPosts={pokemons.length} paginate={paginate} />
+      <Pagination postsPerPage={postsPerPage} totalPosts={pokemons[0] === 'noPokemons' || loading === true ? 0 : pokemons.length} paginate={paginate} />
       </div>
     </div>
   )

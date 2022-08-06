@@ -3,6 +3,7 @@ import axios from 'axios';
 const GET_POKEMONS = 'GET_POKEMONS';
 const GET_TYPES = 'GET_TYPES';
 const GET_POKEMON_DETAILS = 'GET_POKEMON_DETAILS';
+const CLEAR_POKEMONS = 'CLEAR_POKEMONS';
 
 export function getPokemons(name){
   return async function(dispatch){
@@ -18,7 +19,10 @@ export function getPokemons(name){
         payload: pokemons,
       });
     } catch (e) {
-      console.log(e);
+      return dispatch({
+        type: CLEAR_POKEMONS,
+        payload: ['noPokemons'],
+      })
     }
   }
 };
@@ -51,4 +55,4 @@ export function getPokemonDetails(id) {
   }
 }
 
-export { GET_POKEMONS, GET_TYPES, GET_POKEMON_DETAILS };
+export { GET_POKEMONS, GET_TYPES, GET_POKEMON_DETAILS, CLEAR_POKEMONS };

@@ -1,4 +1,4 @@
-import { GET_POKEMONS, GET_TYPES, GET_POKEMON_DETAILS } from './actions';
+import { GET_POKEMONS, GET_TYPES, GET_POKEMON_DETAILS, CLEAR_POKEMONS } from './actions';
 
 const initialState = {
   pokemons: [],
@@ -22,6 +22,11 @@ export default function rootReducer(state = initialState, action){
       return{
         ...state,
         pokemon: action.payload,
+      }
+    case CLEAR_POKEMONS:
+      return{
+        ...state,
+        pokemons: action.payload,
       }  
     default:
       return state;

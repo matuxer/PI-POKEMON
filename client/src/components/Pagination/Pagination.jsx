@@ -7,6 +7,12 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
+  
+  if (totalPosts === 0) {
+    return (
+      <div></div>
+    )
+  }
 
   return (
     <nav className={styles.paginationNav}>

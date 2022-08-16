@@ -1,12 +1,136 @@
-.ordersAndFilters{
-  padding: 25px;
-  display: flex;
-  justify-content: center;
+.typesFilter {
+  box-sizing: border-box;
+  position: relative;
+  width: 200px;
+  height: 43px;
+  left: 470px;
+  top: 10px;
+  background-color: #ffffff;
+  border: 1.5px solid #0286af;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
 }
 
-.ordersAndFiltersForm {
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
-  column-gap: 20px;
+.typesFilter::after {
+  content: url("../../Images/DropdownIcon.svg");
+  position: absolute;
+  width: 16px;
+  height: 15.02px;
+  top: 15px;
+  right: 16px;
+}
+
+.typesFilter select {
+  appearance: none;
+  border: none;
+  border-radius: 30px;
+  background: none;
+  padding-left: 19px;
+  width: 100%;
+  height: 100%;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.15em;
+  color: #949292;
+}
+
+.createdFilter {
+  box-sizing: border-box;
+  position: absolute;
+  width: 200px;
+  height: 43px;
+  left: 694px;
+  top: 10px;
+  background: #ffffff;
+  border: 1.5px solid #0286af;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+
+.createdFilter select {
+  appearance: none;
+  border: none;
+  border-radius: 30px;
+  background: none;
+  padding-left: 19px;
+  width: 100%;
+  height: 100%;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.15em;
+  color: #949292;
+}
+
+.createdFilter::after {
+  content: url("../../Images/DropdownIcon.svg");
+  position: absolute;
+  width: 16px;
+  height: 15.02px;
+  top: 15px;
+  right: 16px;
+}
+
+.orders {
+  box-sizing: border-box;
+  position: absolute;
+  width: 200px;
+  height: 43px;
+  left: 916px;
+  top: 10px;
+  background: #ffffff;
+  border: 1.5px solid #0286af;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+
+.orders select {
+  appearance: none;
+  border: none;
+  border-radius: 30px;
+  background: none;
+  padding-left: 19px;
+  width: 100%;
+  height: 100%;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.15em;
+  color: #949292;
+}
+
+.orders::after {
+  content: url("../../Images/DropdownIcon.svg");
+  position: absolute;
+  width: 16px;
+  height: 15.02px;
+  top: 15px;
+  right: 16px;
+}
+
+.buttonContainer {
+  position: absolute;
+  width: 32px;
+  height: 28.46px;
+  left: 1135px;
+  top: 16px;
+}
+
+.resetButton{
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.resetButton:disabled {
+  opacity: 0;
+  cursor: default;
 }

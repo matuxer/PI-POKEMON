@@ -87,6 +87,7 @@ function HomePage() {
     setFilterType('select');
     setFilterCreated('all');
     setOrder('select');
+    setCurrentPage(1);
   }
 
   async function dispatcher(name) {
@@ -114,11 +115,13 @@ function HomePage() {
   return (
     <div className={styles.homePage}>
       <NavBar />
+      <div className={styles.searchAndFilter}>
       <SearchBar handleSubmit={handleSubmit} handleSearchReset={handleSearchReset} search={search} handleSearch={handleSearch} />
       <OrdersAndFilters handleReset={handleReset} filterType={filterType} handleFilter={handleFilter} filterCreated={filterCreated} order={order} handleOrder={handleOrder}  />
+      </div>
       <div className={styles.homeCards}>
       <Cards pokemons={currentPokemons} loading={loading} />
-      <Pagination postsPerPage={postsPerPage} totalPosts={pokemons.length} paginate={paginate} />
+      <Pagination postsPerPage={postsPerPage} totalPosts={pokemons.length} paginate={paginate} loading={loading} currentPage={currentPage} />
       </div>
     </div>
   )

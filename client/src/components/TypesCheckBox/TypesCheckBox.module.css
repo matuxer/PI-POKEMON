@@ -1,0 +1,34 @@
+.checkBoxContainer {
+  flex-basis: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.checkBoxLabel {
+  width: 130px;
+  height: 32px;
+  left: 333px;
+  top: 499px;
+  border-radius: 30px;
+  color: white;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 4,384px;
+  transition: 0.10s;
+}
+
+.notCheckedLabel {
+  border: 1px solid transparent;
+}
+
+.checkedLabel {
+  transform: scale(1.2, 1.2);
+}
+
+.checkBoxInput {
+  display: none;
+}

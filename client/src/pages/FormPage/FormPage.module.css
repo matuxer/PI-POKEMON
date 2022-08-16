@@ -1,0 +1,278 @@
+.formPage {
+  background-image: url("https://wallpapercave.com/wp/wp10311682.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.formContainer {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.formTitle {
+  position: absolute;
+  top: 0;
+  width: 422px;
+  height: 35px;
+  margin: 10px 0 20px 0;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 35px;
+  letter-spacing: 0.15em;
+  color: #3b4cca;
+  text-shadow: 0px 0px 3px white;
+  z-index: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  width: 80%;
+  height: 590px;
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.nameInput {
+  margin-top: 30px;
+  padding-left: 13px;
+  box-sizing: border-box;
+  width: 300px;
+  height: 40px;
+  left: 642px;
+  top: 160px;
+  background: #ffffff;
+  border: 1.5px solid #0286af;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 18px;
+  letter-spacing: 0.15em;
+  margin-bottom: 21px;
+}
+
+.nameInput:focus {
+  outline: none !important;
+}
+
+.nameError {
+  margin-top: 30px;
+  padding-left: 13px;
+  box-sizing: border-box;
+  width: 300px;
+  height: 40px;
+  left: 642px;
+  top: 160px;
+  background: #ffffff;
+  border: 1.5px solid #c61515;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  color: #c61515;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 18px;
+  letter-spacing: 0.15em;
+  margin-bottom: 21px;
+}
+
+.nameError:focus {
+  outline: none !important;
+}
+
+
+.rangeInputsContainer {
+  padding: 0 100px 0 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.rangeInputsContainer div {
+  position: relative;
+  flex-basis: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 25px;
+}
+
+.rangeInputsContainer label {
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  text-align: right;
+  letter-spacing: 0.15em;
+  color: #0286af;
+}
+
+.imageInput {
+  padding-left: 13px;
+  box-sizing: border-box;
+  width: 300px;
+  height: 40px;
+  left: 642px;
+  top: 160px;
+  background: #ffffff;
+  border: 1.5px solid #0286af;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 18px;
+  letter-spacing: 0.15em;
+  margin-bottom: 11px;
+}
+
+.typesSelector {
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: #0286af;
+  border-bottom: 2px dotted transparent;
+}
+
+.typesSelectorError_1 {
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  border-bottom: 2px dotted #c04e4e;
+  color: #c04e4e;
+}
+
+.typesCheckBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 10px 12px 10px;
+  padding: 5px 25px 5px 25px;
+  height: 176px;
+}
+
+.submitButton button {
+  width: 180px;
+  height: 40px;
+  background: #0286af;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  color: white;
+  transition: .25s;
+}
+
+.submitButton button:disabled {
+  mix-blend-mode: multiply;
+  background: gray;
+}
+
+.lds_dual_ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin-top: 30px;
+}
+
+.lds_dual_ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #0286af;
+  border-color: #0286af transparent #0286af transparent;
+  animation: lds_dual_ring 1.2s linear infinite;
+}
+
+@keyframes lds_dual_ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rangeInput {
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
+
+.rangeInput::-webkit-slider-runnable-track {
+  background: #949292;
+  height: 3px;
+  border-radius: 10px;
+}
+
+.rangeInput::-moz-range-track {
+  height: 3px;
+  border-radius: 10px;
+  background: #949292;
+}
+
+.rangeInput::-ms-track{
+  height: 3px;
+  border-radius: 10px;
+  background: #949292;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  background: #ffde00;
+  border: 1px #C29800 solid;
+}
+
+.rangeInput::-moz-range-thumb {
+  background: #ffde00;
+  border: 1px #C29800 solid;
+}
+
+.rangeInput::-ms-thumb {
+  background: #ffde00;
+  border: 1px #C29800 solid;
+}
+
+.inputValue {
+  position: absolute;
+  right: 0;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #0286af;
+}

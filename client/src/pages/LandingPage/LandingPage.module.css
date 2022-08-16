@@ -1,4 +1,3 @@
-
 .masthead {
   display: flex;
   justify-content: center;
@@ -6,22 +5,29 @@
   flex-direction: column;
   text-align: center;
   width: 100%;
-  height: 100vh; 
+  height: 100vh;
   overflow: hidden;
   background-size: cover !important;
-  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 37%, rgba(0,0,0,0.65) 100%), url('https://cutewallpaper.org/28/desktop-wallpaper-pokemon/891127095.jpg') no-repeat bottom center scroll;
+  background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 37%,
+      rgba(0, 0, 0, 0.65) 100%
+    ),
+    url("https://cutewallpaper.org/28/desktop-wallpaper-pokemon/891127095.jpg")
+      no-repeat bottom center scroll;
 }
 
 .landingLink {
   text-decoration: none;
-  color: #0075BE;
+  color: #0075be;
   font-weight: 700;
 }
 
 .landingButton {
-  background: #FFCC00 ;
-  transition: background ease .25s;
-  border: 8px solid #0075BE ;
+  background: #ffcc00;
+  transition: background ease 0.25s;
+  border: 8px solid #0075be;
   border-radius: 8px;
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -31,17 +37,8 @@
   font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  transition: .30s;
+  transition: 0.3s;
 }
 .landingButton:hover {
-  box-shadow: inset 0px 0px 15px 2px #D5A100, 0px 0px 50px -16px #0A285F;
+  box-shadow: inset 0px 0px 15px 2px #d5a100, 0px 0px 50px -16px #0a285f;
 }
-.landingButton:focus {
-  outline: 1px solid #fff;
-  outline-offset: -4px;
-}
-
-
-

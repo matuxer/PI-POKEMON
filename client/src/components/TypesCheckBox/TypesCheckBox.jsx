@@ -1,23 +1,42 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
+import { getColor } from "../../controllers/clientControllers";
+import styles from "./TypesCheckBox.module.css";
 
 function TypesCheckBox({ name, handleCheck, checked, cleanCheck }) {
-  const initialState = checked
+  const initialState = checked;
   const [check, setCheck] = useState(initialState);
+  let labelChecked = styles.notCheckedLabel;
+  const [label, setLabel] = useState(false);
+
+  if (label) labelChecked = styles.checkedLabel;
 
   let handleOneCheck = (e) => {
     setCheck(!check);
+    setLabel((prev) => !prev);
     handleCheck(e);
-  } 
+  };
   useEffect(() => {
-    setCheck(false)
+    setCheck(false);
   }, [cleanCheck]);
 
   return (
-    <li>
-      <label htmlFor="types">{name}</label>
-      <input checked={check} type="checkbox" name='types' value={name} onChange={handleOneCheck} />
-    </li>
-  )
+    <div className={styles.checkBoxContainer}>
+    <label
+      style={{ backgroundColor: getColor(name) }}
+      className={`${styles.checkBoxLabel} ${labelChecked}`}
+    >
+      <input
+        className={styles.checkBoxInput}
+        checked={check}
+        type="checkbox"
+        name="types"
+        value={name}
+        onChange={handleOneCheck}
+      />
+      {name.toUpperCase()}
+    </label>
+    </div>
+  );
 }
 
-export default TypesCheckBox
+export default TypesCheckBox;

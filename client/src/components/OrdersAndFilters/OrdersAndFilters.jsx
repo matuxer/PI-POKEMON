@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styles from './OrdersAndFilters.module.css';
+import ResetFilterIcon from '../../Images/ResetFilterIcon.svg';
 
 export default function OrdersAndFilters({
   handleReset,
@@ -38,7 +39,9 @@ export default function OrdersAndFilters({
           </select>
         </div>
         <div className={styles.buttonContainer}>
-          <button type="reset" className={styles.resetButton}>RESET</button>
+          <button type="reset" disabled={(filterType === "select" && filterCreated === "all" && order === "select")} className={styles.resetButton}>
+            <img src={ResetFilterIcon} alt="ResetFilterIcon" />
+          </button>
         </div>
       </form>
     </div>

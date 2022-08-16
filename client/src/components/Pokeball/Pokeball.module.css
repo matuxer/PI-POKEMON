@@ -1,0 +1,192 @@
+.pokeball {
+  box-sizing: border-box;
+  --pokeball-size: 200px;
+  --pokeball-inner-size: 60px;
+  --pokeball-border-size: 8px;
+
+  --before-diameter: var(--pokeball-inner-size);
+  --after-diameter: calc(
+    var(--before-diameter) - (var(--pokeball-border-size)) * 3
+  );
+
+  border: var(--pokeball-border-size) solid #262122;
+  width: var(--pokeball-size);
+  height: var(--pokeball-size);
+  border-radius: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  background: linear-gradient(
+    150deg,
+    #ba0c2f 0%,
+    #ba0c2f 44%,
+    #262122 44%,
+    #262122 56%,
+    #fff 56%,
+    #fff 100%
+  );
+}
+
+.pokeball::before,
+.pokeball::after {
+  content: " ";
+  border-radius: 100%;
+  display: block;
+  position: absolute;
+}
+
+.pokeball::before {
+  width: var(--before-diameter);
+  height: var(--before-diameter);
+  top: calc(50% - var(--before-diameter) / 2);
+  left: calc(50% - var(--before-diameter) / 2);
+  background: #262122;
+}
+
+.pokeball::after {
+  width: var(--after-diameter);
+  height: var(--after-diameter);
+  top: calc(50% - ((var(--after-diameter) / 2) + var(--pokeball-border-size)));
+  left: calc(50% - ((var(--after-diameter) / 2) + var(--pokeball-border-size)));
+  background: #fff;
+  border: solid var(--pokeball-border-size) #262122;
+}
+
+.pokeball_rotate {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: rotate;
+}
+
+.pokeball_rotate_reverse {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: rotate_reverse;
+}
+
+.pokeball_shake {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: shake;
+}
+
+.jello_horizontal {
+  animation: jello_horizontal 2s infinite both;
+}
+
+.pulsate_fwd {
+  animation: pulsate_fwd 0.5s ease-in-out infinite both;
+}
+
+.vibrate_1 {
+  animation: vibrate_1 0.3s linear infinite both;
+}
+
+@keyframes vibrate_1 {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes pulsate_fwd {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes jello_horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate_reverse {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes shake {
+  from {
+    transform: none;
+  }
+
+  20% {
+    transform: translate3d(-20%, 0, 0) rotate3d(0, 0, 1, -10deg);
+  }
+
+  40% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 5deg);
+  }
+
+  50% {
+    transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 5deg);
+  }
+
+  to {
+    transform: none;
+  }
+}

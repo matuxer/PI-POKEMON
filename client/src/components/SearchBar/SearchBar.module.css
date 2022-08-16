@@ -1,24 +1,67 @@
-.searchBar{
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.searchForm{
-  position: relative;
-  display: flex;
-}
-
-.resetSearchButton{
+.searchBarInput {
+  box-sizing: border-box;
   position: absolute;
-  top: 2px;
-  left: 170px;
-  border: none;
+  width: 400px;
+  height: 43px;
+  left: 45px;
+  top: 10px;
+  background: white;
+  border: 1.5px solid #0286af;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  padding-left: 62px;
+  padding-right: 55px;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.15em;
+  color: #949292;
+}
+
+.searchBarInput::placeholder {
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.15em;
+  color: #949292;
+}
+.searchBarInput:focus {
+  outline: none !important;
+}
+
+.submitSearchButton {
   background: none;
-  font-weight: 700;
+  border: none;
+  position: absolute;
+  width: 28.9px;
+  height: 29px;
+  left: 60px;
+  top: 18px;
+  cursor: pointer;
   transition: 0.25s;
 }
 
-.resetSearchButton:disabled{
+.submitSearchButton:disabled {
+  cursor: text;
+}
+
+.resetSearchButton {
+  background: none;
+  border: none;
+  position: absolute;
+  width: 28.9px;
+  height: 29px;
+  left: 405px;
+  top: 18px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.resetSearchButton:disabled {
   opacity: 0;
+  cursor: text;
 }

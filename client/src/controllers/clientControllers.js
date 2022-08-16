@@ -1,3 +1,25 @@
+const colours = {
+  normal: '#A8A77A',
+  fire: '#EE8130',
+  water: '#6390F0',
+  electric: '#F7D02C',
+  grass: '#7AC74C',
+  ice: '#96D9D6',
+  fighting: '#C22E28',
+  poison: '#A33EA1',
+  ground: '#E2BF65',
+  flying: '#A98FF3',
+  psychic: '#F95587',
+  bug: '#A6B91A',
+  rock: '#B6A136',
+  ghost: '#735797',
+  dragon: '#6F35FC',
+  dark: '#705746',
+  steel: '#B7B7CE',
+  fairy: '#D685AD',
+  unknown: '#699D8E',
+  shadow: '#000000',
+};
 
 
 export const filterCards = (arr, str) => {
@@ -68,4 +90,14 @@ export const validate = (input) => {
     error.types = "Solo se pueden 2 tipos"
   }
   return error;
+}
+
+export const getColor = (type) => {
+  for(const key in colours){
+    if(type === key) return colours[key];
+  }
+}
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }

@@ -85,9 +85,9 @@ export const validate = (input) => {
     error.name = "No se permiten numeros en el nombre"
   };
   if (input.types.length === 0) {
-    error.types = "Se requiere minimo 1 tipo"
+    error.types = "The Pokemon needs at least 1 TYPE"
   }else if (input.types.length > 2) {
-    error.types = "Solo se pueden 2 tipos"
+    error.types = "The Pokemon can't have more than 2 TYPES"
   }
   return error;
 }

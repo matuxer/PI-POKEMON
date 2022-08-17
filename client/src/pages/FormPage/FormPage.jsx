@@ -96,123 +96,129 @@ function Form() {
     <div className={styles.formPage}>
       <NavBar />
       <div className={styles.formContainer}>
+        <h4 className={styles.formTitle}>Create Your Pokemon</h4>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <h4 className={styles.formTitle}>Create Your Pokemon</h4>
-            <input
-              className={error.name !== "Se requiere un nombre" ? styles.nameInput : styles.nameError}
-              name="name"
-              value={input.name}
-              type="text"
-              placeholder="Pokemon Name..."
-              onChange={handleOnChange}
-            />
+          <input
+            className={
+              error.name !== "Se requiere un nombre"
+                ? styles.nameInput
+                : styles.nameError
+            }
+            name="name"
+            value={input.name}
+            type="text"
+            placeholder="Pokemon Name..."
+            onChange={handleOnChange}
+          />
           <div className={styles.rangeInputsContainer}>
-          <div className={styles.healthInput}>
-            <label htmlFor="health">Health:</label>
-            <input
-              className={styles.rangeInput}
-              name="health"
-              value={input.health}
-              type="range"
-              min={1}
-              max={255}
-              onChange={handleOnChange}
-            />
-            <span className={styles.inputValue} >{input.health}</span>
-          </div>
-          <div className={styles.attackInput}>
-            <label htmlFor="attack">Attack:</label>
-            <input
-              className={styles.rangeInput}
-              name="attack"
-              value={input.attack}
-              type="range"
-              min={5}
-              max={190}
-              onChange={handleOnChange}
-            />
-            <span className={styles.inputValue} >{input.attack}</span>
-            
-          </div>
-          <div className={styles.defenseInput}>
-            <label htmlFor="defense">Defense:</label>
-            <input
-              className={styles.rangeInput}
-              name="defense"
-              value={input.defense}
-              type="range"
-              min={5}
-              max={230}
-              onChange={handleOnChange}
-            />
-            <span className={styles.inputValue} >{input.defense}</span>
-
-          </div>
-          <div className={styles.speedInput}>
-            <label htmlFor="speed">Speed:</label>
-            <input
-              className={styles.rangeInput}
-              name="speed"
-              value={input.speed}
-              type="range"
-              min={5}
-              max={200}
-              onChange={handleOnChange}
-            />
-            <span className={styles.inputValue} >{input.speed}</span>
-
-          </div>
-          <div className={styles.heightInput}>
-            <label htmlFor="height">Height:</label>
-            <input
-              className={styles.rangeInput}
-              name="height"
-              value={input.height}
-              type="range"
-              min={1}
-              max={200}
-              onChange={handleOnChange}
-            />
-            <span className={styles.inputValue} >{input.height}</span>
-
-          </div>
-          <div className={styles.weightInput}>
-            <label htmlFor="weight">Weight:</label>
-            <input
-              className={styles.rangeInput}
-              name="weight"
-              value={input.weight}
-              type="range"
-              min={1}
-              max={1000}
-              onChange={handleOnChange}
-            />
-            <span className={styles.inputValue} >{input.weight}</span>
-
-          </div>
-          </div>
-            <input
-              className={styles.imageInput}
-              name="image"
-              value={input.image}
-              placeholder='Image URL...'
-              type="text"
-              onChange={handleOnChange}
-            />
-          <div className={ typesSelectorStyle }>Types:</div>
-          <div className={styles.typesCheckBox}>
-            {types.length > 0 ? types.map((type) => (
-              <TypesCheckBox
-                key={type.id}
-                name={type.name}
-                handleCheck={handleCheck}
-                checked={checked}
-                cleanCheck={clean}
+            <div className={styles.healthInput}>
+              <label htmlFor="health">Health:</label>
+              <input
+                className={styles.rangeInput}
+                name="health"
+                value={input.health}
+                type="range"
+                min={1}
+                max={255}
+                onChange={handleOnChange}
               />
-            )) : <div className={styles.lds_dual_ring}></div>}
+              <span className={styles.inputValue}>{input.health}</span>
+            </div>
+            <div className={styles.attackInput}>
+              <label htmlFor="attack">Attack:</label>
+              <input
+                className={styles.rangeInput}
+                name="attack"
+                value={input.attack}
+                type="range"
+                min={5}
+                max={190}
+                onChange={handleOnChange}
+              />
+              <span className={styles.inputValue}>{input.attack}</span>
+            </div>
+            <div className={styles.defenseInput}>
+              <label htmlFor="defense">Defense:</label>
+              <input
+                className={styles.rangeInput}
+                name="defense"
+                value={input.defense}
+                type="range"
+                min={5}
+                max={230}
+                onChange={handleOnChange}
+              />
+              <span className={styles.inputValue}>{input.defense}</span>
+            </div>
+            <div className={styles.speedInput}>
+              <label htmlFor="speed">Speed:</label>
+              <input
+                className={styles.rangeInput}
+                name="speed"
+                value={input.speed}
+                type="range"
+                min={5}
+                max={200}
+                onChange={handleOnChange}
+              />
+              <span className={styles.inputValue}>{input.speed}</span>
+            </div>
+            <div className={styles.heightInput}>
+              <label htmlFor="height">Height:</label>
+              <input
+                className={styles.rangeInput}
+                name="height"
+                value={input.height}
+                type="range"
+                min={1}
+                max={200}
+                onChange={handleOnChange}
+              />
+              <span className={styles.inputValue}>{input.height}</span>
+            </div>
+            <div className={styles.weightInput}>
+              <label htmlFor="weight">Weight:</label>
+              <input
+                className={styles.rangeInput}
+                name="weight"
+                value={input.weight}
+                type="range"
+                min={1}
+                max={1000}
+                onChange={handleOnChange}
+              />
+              <span className={styles.inputValue}>{input.weight}</span>
+            </div>
           </div>
+          <input
+            className={styles.imageInput}
+            name="image"
+            value={input.image}
+            placeholder="Image URL..."
+            type="text"
+            onChange={handleOnChange}
+          />
+          <div className={typesSelectorStyle}>Types:</div>
+          <div className={styles.typesCheckBox}>
+            {types.length > 0 ? (
+              types.map((type) => (
+                <TypesCheckBox
+                  key={type.id}
+                  name={type.name}
+                  handleCheck={handleCheck}
+                  checked={checked}
+                  cleanCheck={clean}
+                />
+              ))
+            ) : (
+              <div className={styles.lds_dual_ring}></div>
+            )}
+          </div>
+          <div className={styles.typesError}>{error.types}</div>
           <div className={styles.submitButton}>
-            <button type="submit" disabled={Object.keys(error).length > 0} >CREAR</button>
+            <button type="submit" disabled={Object.keys(error).length > 0}>
+              CREAR
+            </button>
           </div>
         </form>
       </div>

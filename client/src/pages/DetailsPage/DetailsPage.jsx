@@ -37,6 +37,7 @@ function DetailsPage() {
       <NavBar />
       <div className={styles.detailsContainer}>
         <div className={styles.pokeDetails}>
+          <div className={styles.pokeId}>Id: {pokemon.id}</div>
           <img
             className={styles.pokeImage}
             src={pokemon.image}

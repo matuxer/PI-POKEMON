@@ -31,6 +31,7 @@
 }
 
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -169,7 +170,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 10px 10px 12px 10px;
+  margin: 10px 10px 32px 10px;
   padding: 5px 25px 5px 25px;
   height: 176px;
 }
@@ -275,4 +276,16 @@
   line-height: 23px;
   text-align: center;
   color: #0286af;
+}
+
+.typesError {
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: #c61515;
+  position: absolute;
+  bottom: 70px;
 }

@@ -25,6 +25,7 @@
 }
 
 .pokeDetails {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,4 +129,17 @@
 
 .VerticalLineIcon {
   height: 100%;
+}
+
+.pokeId {
+  position: absolute;
+  top: 5px;
+  left: center;
+  font-family: "Gill Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 23px;
+  text-align: center;
+  color: #0286af;
 }

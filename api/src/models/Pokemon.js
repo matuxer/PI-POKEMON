@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
-const url = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+const url = 'https://svgur.com/i/k9_.svg';
 
 module.exports = (sequelize) => {
   // defino el modelo

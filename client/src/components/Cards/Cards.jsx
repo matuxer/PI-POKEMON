@@ -19,7 +19,7 @@ function Cards({ pokemons, loading }) {
           src="https://svgsilh.com/svg/1574006.svg"
           alt="pokemons not found"
         />
-        <p>We couldn`t find the Pokemon you're looking for</p>
+        <p className={styles.notFoundText} >We couldn`t find the Pokemon you're looking for</p>
       </div>
     );
   }

@@ -63,7 +63,7 @@ function Form() {
   let handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.image) {
-      await axios.post("http://localhost:3001/pokemons", {
+      await axios.post("https://pokemon-pi-w7jn.onrender.com/pokemons", {
         name: input.name.trim(),
         health: parseInt(input.health),
         attack: parseInt(input.attack),
@@ -74,7 +74,7 @@ function Form() {
         types: input.types,
       });
     } else {
-      await axios.post("http://localhost:3001/pokemons`", {
+      await axios.post("https://pokemon-pi-w7jn.onrender.com/pokemons`", {
         name: input.name.trim(),
         health: parseInt(input.health),
         attack: parseInt(input.attack),

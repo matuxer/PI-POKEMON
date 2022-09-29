@@ -10,9 +10,9 @@ export function getPokemons(name){
     let pokemons;
     try {
       if (name) {
-        pokemons = (await axios.get(`http://localhost:3001/pokemons?name=${name}`)).data;
+        pokemons = (await axios.get(`https://pokemon-pi-w7jn.onrender.com/pokemons?name=${name}`)).data;
       }else {
-        pokemons = (await axios.get('http://localhost:3001/pokemons')).data;
+        pokemons = (await axios.get('https://pokemon-pi-w7jn.onrender.com/pokemons')).data;
       }
       return dispatch({
         type: GET_POKEMONS,
@@ -30,7 +30,7 @@ export function getPokemons(name){
 export function getTypes() {
   return async function(dispatch) {
     try {
-      const types = (await axios.get('http://localhost:3001/types')).data;
+      const types = (await axios.get('https://pokemon-pi-w7jn.onrender.com/types')).data;
       return dispatch({
         type: GET_TYPES,
         payload: types,
@@ -44,7 +44,7 @@ export function getTypes() {
 export function getPokemonDetails(id) {
   return async function(dispatch) {
     try {
-      const details = (await axios.get(`http://localhost:3001/pokemons/${id}`)).data;
+      const details = (await axios.get(`https://pokemon-pi-w7jn.onrender.com/pokemons/${id}`)).data;
       return dispatch({
         type: GET_POKEMON_DETAILS,
         payload: details,

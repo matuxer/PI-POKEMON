@@ -31,7 +31,6 @@ export function getTypes() {
   return async function(dispatch) {
     try {
       const types = (await axios.get('https://pokemon-pi-w7jn.onrender.com/types')).data;
-      console.log(types);
       return dispatch({
         type: GET_TYPES,
         payload: types,
